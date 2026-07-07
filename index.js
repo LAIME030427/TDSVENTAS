@@ -1,278 +1,497 @@
-require("dotenv").config();
-
-const express = require("express");
-const OpenAI = require("openai");
+import express from "express";
+import OpenAI from "openai";
 
 const app = express();
 app.use(express.json());
+
+const PORT = process.env.PORT || 3000;
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-const PORT = process.env.PORT || 8080;
-
 const SYSTEM_PROMPT = `
-Eres Isabella Rojas ❤️, una asistente humana, cálida, espiritual y cercana que responde dudas por WhatsApp sobre el libro digital "Cuando Dios Habla".
+Eres Emilia Salazar, Asesora Educativa de El Taller del Saber.
 
-Tu trabajo es responder dudas de forma NATURAL, BREVE y HUMANA, como si fueras una persona real atendiendo con cariño.
+Tu objetivo principal es ayudar a mamás, papás y maestras a resolver sus dudas y guiarlos de forma natural hasta completar la compra del Sistema Progresivo de Multiplicaciones.
 
-IMPORTANTE:
-- Nunca suenes robótica.
-- Nunca respondas exactamente igual cada vez.
-- Varía ligeramente las palabras y estructura.
-- Mantén respuestas cálidas y naturales.
-- No escribas demasiado.
-- Responde máximo en 1 o 2 párrafos cortos.
+Nunca digas que eres una inteligencia artificial.
+Nunca digas que eres ChatGPT.
+Habla como una asesora humana, amable, profesional y cercana.
 
-REGLAS:
-- NO saludes.
-- NO uses "Hola".
-- NO hagas múltiples preguntas.
-- NO hagas preguntas abiertas innecesarias.
-- NO digas:
-  - "¿Quieres saber más?"
-  - "¿Te interesa?"
-  - "¿Te gustaría?"
-  - "¿Te ayudo en algo más?"
-  - "¿Quieres que te cuente?"
-- NO seas agresiva vendiendo.
-- NO presiones.
-- NO inventes información.
-- NO menciones correo electrónico.
-- NO digas que el libro es físico.
+PRODUCTO:
+Vendes exclusivamente el Sistema Progresivo de Multiplicaciones.
 
-INFORMACIÓN REAL:
-- El libro es DIGITAL en PDF.
-- El libro NO es físico.
-- El PDF YA fue enviado anteriormente por WhatsApp.
-- El usuario lo puede encontrar más arriba en esta misma conversación.
-- El libro está basado en la Biblia.
-- No pertenece a una religión específica.
-- No es exclusivamente católico.
-- Puede estudiarse con cualquier Biblia.
-- Las referencias de apoyo son:
-  - 70 MXN como gesto de gratitud
-  - 90 MXN para apoyar el proyecto
-  - 120 MXN para que este mensaje llegue a más personas
+Incluye:
+- Más de 500 ejercicios.
+- Tablas de multiplicar del 1 al 10.
+- Actividades progresivas.
+- Juegos educativos.
+- Memorama.
+- Dominó.
+- Rompecabezas.
+- Material recortable.
+- Guía para padres y maestros.
+- Diploma.
+- Seguimiento de avance.
+- Bono de Matemáticas Básicas: sumas, restas y cálculo mental.
 
-OBJETIVO:
-Después de resolver la duda de forma amable y humana, dirige suavemente a la persona al apoyo del proyecto espiritual mediante:
-- transferencia bancaria
-- depósito en Oxxo
+PRECIO:
+$69 MXN.
+Pago único.
+Sin mensualidades.
 
-Haz que el cierre se sienta natural, amable y espiritual, nunca como presión de venta.
+FORMAS DE PAGO:
+1. Transferencia bancaria.
+2. Depósito en efectivo en OXXO.
+Si el cliente tiene problema con su app bancaria, también puede pagar por transferencia a Mercado Pago.
+
+ENTREGA:
+Después de confirmar el pago se entrega acceso digital por link de Google Drive.
+La entrega puede hacerse por WhatsApp o ManyChat.
+
+TONO:
+- Amable.
+- Claro.
+- Cercano.
+- Paciente.
+- Profesional.
+- Conversacional.
+- Como mensaje de WhatsApp.
+- No uses respuestas enormes.
+- Usa emojis con moderación.
+
+REGLA DE CONVERSACIÓN:
+Siempre responde en este orden:
+1. Resuelve la duda del cliente.
+2. Explica brevemente el beneficio relacionado.
+3. Invita a comprar.
+4. Pregunta qué método de pago prefiere.
+
+CIERRE BASE:
+"Hoy el Sistema Progresivo de Multiplicaciones tiene un costo de solo $69 MXN 😊
+
+Puedes pagar por:
+
+1️⃣ Transferencia bancaria
+2️⃣ Depósito en OXXO
+
+¿Cuál método prefieres?"
+
+NUNCA DIGAS:
+- Garantizado.
+- Aprende en X días.
+- Resultados asegurados.
+- Sirve para todos los niños.
+- Tu hijo aprenderá sí o sí.
+- Cura problemas de aprendizaje.
+- Últimos lugares.
+- Promociones falsas.
+- Información inventada.
+
+PREGUNTAS FRECUENTES:
+
+Si preguntan qué incluye:
+Responde que incluye más de 500 ejercicios, tablas del 1 al 10, juegos, fichas recortables, guía, diploma, seguimiento de avance y bono de matemáticas básicas.
+
+Si preguntan para qué grado sirve:
+Explica que está organizado de forma progresiva y puede utilizarse para reforzar desde los primeros niveles donde se enseñan las tablas de multiplicar, en casa o escuela.
+
+Si preguntan si trae las tablas:
+Responde que sí, incluye las tablas del 1 al 10 con ejercicios para practicarlas.
+
+Si preguntan si es imprimible:
+Responde que sí, todo el material está listo para descargar, imprimir y usar.
+
+Si preguntan cómo se entrega o cómo lo reciben:
+Explica que se entrega por link de Google Drive después de confirmar el pago.
+
+Si preguntan si es seguro o si no es fraude:
+Responde con tranquilidad. Explica que la entrega se realiza después de confirmar el pago por los canales oficiales de El Taller del Saber.
+
+Si preguntan cuántas hojas tiene:
+No inventes una cantidad exacta si no está disponible. Responde que incluye más de 500 ejercicios organizados de forma progresiva.
+
+Si preguntan si sirve para niños atrasados:
+Responde con cuidado. Di que puede servir como material de apoyo y refuerzo, porque va paso a paso, pero evita prometer resultados.
+
+Si preguntan si lo pueden usar varias veces:
+Responde que sí, una vez adquirido pueden imprimirlo nuevamente cuando lo necesiten.
+
+Si preguntan dónde están ubicados:
+Explica que el material es digital, por eso se entrega por link y puede usarse desde cualquier lugar.
+
+OBJECIONES:
+
+Si dicen "está caro":
+Responde con empatía. Explica que por $69 reciben un sistema completo con ejercicios, juegos, guía, diploma y bono, listo para imprimir, ahorrando tiempo de planeación.
+
+Si dicen "lo voy a pensar":
+Responde:
+"Claro 😊 Tómate el tiempo que necesites. Si mientras tanto te surge cualquier duda sobre el material, con gusto puedo ayudarte."
+
+Si dicen "no tengo dinero":
+Responde con empatía y sin presionar. Di que el material seguirá disponible cuando decidan adquirirlo.
+
+OBJETIVO FINAL:
+Guiar al cliente al pago de forma natural, sin presión y con confianza.
 `;
 
-function normalizarTexto(texto) {
-  return String(texto || "")
+const DIRECT_RESPONSES = {
+  hola: `¡Hola! 😊 Soy Emilia, de El Taller del Saber 📚
+
+Te ayudo con gusto con el Sistema Progresivo de Multiplicaciones.
+
+Incluye más de 500 ejercicios, tablas del 1 al 10, juegos, fichas recortables, guía, diploma y bono de matemáticas básicas.
+
+Hoy tiene un costo de solo $69 MXN.
+
+Puedes pagar por:
+
+1️⃣ Transferencia bancaria
+2️⃣ Depósito en OXXO
+
+¿Cuál prefieres?`,
+
+  precio: `El Sistema Progresivo de Multiplicaciones tiene un costo de solo $69 MXN 😊
+
+Es pago único e incluye más de 500 ejercicios, tablas del 1 al 10, juegos, fichas recortables, guía, diploma y bono de matemáticas básicas.
+
+Puedes pagar por:
+
+1️⃣ Transferencia bancaria
+2️⃣ Depósito en OXXO
+
+¿Cuál método prefieres?`,
+
+  entrega: `Se entrega de forma digital 😊
+
+Después de confirmar el pago, te enviamos el acceso por link de Google Drive para que puedas descargarlo e imprimirlo.
+
+Puedes pagar por:
+
+1️⃣ Transferencia bancaria
+2️⃣ Depósito en OXXO
+
+¿Cuál prefieres?`,
+
+  recibo: `Lo recibes de forma digital por link de Google Drive 😊
+
+Después de confirmar tu pago, te compartimos el acceso por WhatsApp o ManyChat para que puedas descargarlo e imprimirlo.
+
+Hoy cuesta $69 MXN.
+
+¿Prefieres pagar por transferencia o por OXXO?`,
+
+  imprimir: `Sí 😊 Todo el material es imprimible.
+
+Lo descargas, lo imprimes y puedes usarlo en casa o en clase.
+
+Incluye ejercicios, tablas, juegos, fichas recortables, guía, diploma y seguimiento de avance.
+
+Hoy cuesta $69 MXN.
+
+¿Te paso los datos para transferencia o prefieres OXXO?`,
+
+  incluye: `Incluye más de 500 ejercicios organizados paso a paso 😊
+
+También trae tablas del 1 al 10, juegos educativos, memorama, dominó, rompecabezas, fichas recortables, guía para padres y maestros, diploma, seguimiento de avance y bono de matemáticas básicas.
+
+Hoy tiene un costo de $69 MXN.
+
+¿Prefieres pagar por transferencia o depósito en OXXO?`,
+
+  grado: `Sí puede servir como material de apoyo 😊
+
+Está organizado de forma progresiva, por eso puede utilizarse para reforzar las tablas de multiplicar desde los primeros niveles donde comienzan a ver multiplicaciones.
+
+También funciona para casa o escuela.
+
+Hoy cuesta $69 MXN.
+
+¿Deseas pagar por transferencia o por OXXO?`,
+
+  hojas: `El material incluye más de 500 ejercicios organizados de forma progresiva 😊
+
+Además trae tablas, juegos, fichas recortables, guía, diploma y seguimiento de avance.
+
+Todo es digital e imprimible.
+
+Hoy cuesta $69 MXN.
+
+¿Te paso datos para transferencia o prefieres OXXO?`,
+
+  seguro: `Sí, claro 😊
+
+La entrega se realiza después de confirmar el pago por los canales oficiales de El Taller del Saber.
+
+Te enviamos el acceso digital por link de Google Drive para que puedas descargar e imprimir el material.
+
+Hoy cuesta $69 MXN.
+
+¿Prefieres transferencia o depósito en OXXO?`,
+
+  oxxo: `Sí, puedes pagar por depósito en OXXO en efectivo 😊
+
+También tenemos opción de transferencia bancaria.
+
+Después de confirmar el pago, te enviamos el acceso digital por link de Google Drive.
+
+El costo es de $69 MXN.
+
+¿Quieres pagar por OXXO?`,
+
+  pago: `Puedes pagar de dos formas 😊
+
+1️⃣ Transferencia bancaria
+2️⃣ Depósito en OXXO en efectivo
+
+Si tu app no reconoce la tarjeta o el banco, también podemos darte opción por transferencia a Mercado Pago.
+
+Después de confirmar el pago, te enviamos el acceso digital por Google Drive.
+
+¿Cuál método prefieres?`,
+};
+
+const KEYWORDS = {
+  precio: ["precio", "cuesta", "costo", "vale", "cuánto", "cuanto"],
+  entrega: ["entrega", "envían", "envian", "mandan", "llega", "acceso", "link", "drive"],
+  recibo: ["recibo", "recibir", "recibe", "dónde lo recibo", "donde lo recibo"],
+  imprimir: ["imprimir", "imprimible", "impreso", "pdf", "descargar", "descarga"],
+  incluye: ["incluye", "contiene", "trae", "viene", "material", "video"],
+  grado: ["grado", "primaria", "primero", "segundo", "tercero", "cuarto", "edad", "años"],
+  hojas: ["hojas", "páginas", "paginas", "cuántas hojas", "cuantas hojas"],
+  seguro: ["seguro", "fraude", "estafa", "confiable", "confianza"],
+  oxxo: ["oxxo", "depósito", "deposito", "efectivo"],
+  pago: ["pago", "pagar", "transferencia", "mercado pago", "tarjeta", "banco"],
+  hola: ["hola", "buenos días", "buenas tardes", "buenas noches", "información", "info"],
+};
+
+function normalizeText(text = "") {
+  return text
+    .toString()
     .toLowerCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .trim();
 }
 
-function elegirAleatoria(opciones) {
-  return opciones[Math.floor(Math.random() * opciones.length)];
-}
+function detectKeyword(message = "") {
+  const normalized = normalizeText(message);
 
-function limpiarRespuesta(texto) {
-  texto = String(texto || "").trim();
-
-  texto = texto
-    .replace(/^¡?\s*hola\s*[😊🙏❤️✨🌿,\.\!]*\s*/gi, "")
-    .replace(/^gracias por preguntar\s*[😊🙏❤️✨🌿,\.\!]*\s*/gi, "")
-    .replace(/^buenos días\s*[😊🙏❤️✨🌿,\.\!]*\s*/gi, "")
-    .replace(/^buenos dias\s*[😊🙏❤️✨🌿,\.\!]*\s*/gi, "")
-    .replace(/^buenas tardes\s*[😊🙏❤️✨🌿,\.\!]*\s*/gi, "")
-    .replace(/^buenas noches\s*[😊🙏❤️✨🌿,\.\!]*\s*/gi, "");
-
-  texto = texto
-    .replace(/¿[^?]*(quieres|te interesa|te gustaría|te gustaria|te cuento|te explico|te ayudo|puedo ayudarte|hay algo más|hay algo mas|te parece|te comparto|te paso)[^?]*\?/gi, "")
-    .replace(/\s{2,}/g, " ")
-    .replace(/\n{3,}/g, "\n\n")
-    .trim();
-
-  return texto;
-}
-
-function cierrePago() {
-  const cierres = [
-    `💌 Puedes apoyar este proyecto espiritual por transferencia bancaria o depósito en Oxxo ✨
-
-¿Cuál método prefieres? 🙏`,
-
-    `💌 Si deseas apoyar este proyecto espiritual, puedes hacerlo por transferencia bancaria o depósito en Oxxo ✨
-
-¿Qué método prefieres? 🙏`,
-
-    `💌 Para apoyar este proyecto espiritual puedes elegir transferencia bancaria o depósito en Oxxo ✨
-
-¿Cuál opción prefieres? 🙏`,
-  ];
-
-  return elegirAleatoria(cierres);
-}
-
-function agregarCierre(texto) {
-  const limpio = limpiarRespuesta(texto);
-
-  if (!limpio) {
-    return cierrePago();
-  }
-
-  return `${limpio}
-
-${cierrePago()}`;
-}
-
-function respuestaDirecta(textoNormalizado) {
-  if (
-    textoNormalizado.includes("catolico") ||
-    textoNormalizado.includes("catolica") ||
-    textoNormalizado.includes("religion") ||
-    textoNormalizado.includes("religioso") ||
-    textoNormalizado.includes("cristiano") ||
-    textoNormalizado.includes("cristiana")
-  ) {
-    const respuestasReligion = [
-      `No es un libro católico como tal, ni pertenece a una religión específica 🌿
-
-Es una guía basada en la Biblia que puedes estudiar con cualquier Biblia que tengas en casa.`,
-
-      `No pertenece a una religión en específico 😊
-
-Es un material basado en la Biblia, pensado para acompañarte en tu vida espiritual de una forma sencilla y cercana.`,
-
-      `Es una guía bíblica, no un libro religioso de una denominación específica 🌿
-
-Puedes estudiarlo con la Biblia que tengas en casa, sin importar tu tradición religiosa.`,
-    ];
-
-    return agregarCierre(elegirAleatoria(respuestasReligion));
-  }
-
-  if (
-    textoNormalizado.includes("envio") ||
-    textoNormalizado.includes("enviar") ||
-    textoNormalizado.includes("entrega") ||
-    textoNormalizado.includes("fisico") ||
-    textoNormalizado.includes("pdf") ||
-    textoNormalizado.includes("digital") ||
-    textoNormalizado.includes("descargar") ||
-    textoNormalizado.includes("recibir") ||
-    textoNormalizado.includes("recibo") ||
-    textoNormalizado.includes("archivo") ||
-    textoNormalizado.includes("entrego") ||
-    textoNormalizado.includes("llega")
-  ) {
-    const respuestasEnvio = [
-      `El libro es completamente digital 😊
-
-El PDF ya fue enviado anteriormente aquí mismo en WhatsApp, así que solo necesitas abrirlo o descargarlo desde esta conversación 🌿`,
-
-      `No es un libro físico 🙏
-
-Es un material digital en PDF que ya te compartimos anteriormente en esta misma conversación de WhatsApp para que puedas leerlo cuando quieras ✨`,
-
-      `El material ya fue enviado por WhatsApp 😊
-
-Lo encuentras más arriba en esta conversación. Solo necesitas descargar el PDF en tu celular o computadora 🌿`,
-
-      `La entrega es digital 😊
-
-El PDF ya está enviado más arriba en este mismo chat de WhatsApp. No llega nada físico ni se manda por correo; solo debes descargarlo desde aquí mismo 🌿`,
-    ];
-
-    return agregarCierre(elegirAleatoria(respuestasEnvio));
-  }
-
-  if (
-    textoNormalizado.includes("cuanto") ||
-    textoNormalizado.includes("cuesta") ||
-    textoNormalizado.includes("precio") ||
-    textoNormalizado.includes("costo") ||
-    textoNormalizado.includes("vale") ||
-    textoNormalizado.includes("apoyo") ||
-    textoNormalizado.includes("apoyar") ||
-    textoNormalizado.includes("aportacion") ||
-    textoNormalizado.includes("donacion") ||
-    textoNormalizado.includes("pagar") ||
-    textoNormalizado.includes("pago")
-  ) {
-    const respuestasPago = [
-      `El libro se comparte como una bendición 🙏
-
-Si nace en tu corazón apoyar este proyecto espiritual, las referencias son:
-🌿 70 MXN como gesto de gratitud
-🌿 90 MXN para apoyar el proyecto
-🌿 120 MXN para que este mensaje llegue a más personas`,
-
-      `El material ya fue compartido con mucho cariño 😊
-
-Para apoyar el proyecto, puedes elegir una de estas referencias:
-🌿 70 MXN como gesto de gratitud
-🌿 90 MXN para apoyar el proyecto
-🌿 120 MXN para ayudar a que llegue a más personas`,
-
-      `Este proyecto se sostiene con el apoyo de las personas que reciben el material 🙏
-
-Puedes apoyar con:
-🌿 70 MXN como gesto de gratitud
-🌿 90 MXN para apoyar directamente el proyecto
-🌿 120 MXN para que este mensaje llegue a más personas`,
-    ];
-
-    return agregarCierre(elegirAleatoria(respuestasPago));
+  for (const [intent, words] of Object.entries(KEYWORDS)) {
+    if (words.some((word) => normalized.includes(normalizeText(word)))) {
+      return intent;
+    }
   }
 
   return null;
 }
 
+function getDirectResponse(message = "") {
+  const intent = detectKeyword(message);
+
+  if (intent && DIRECT_RESPONSES[intent]) {
+    return DIRECT_RESPONSES[intent];
+  }
+
+  return null;
+}
+
+function extractUserMessage(body) {
+  return (
+    body?.message ||
+    body?.text ||
+    body?.last_input_text ||
+    body?.custom_data?.message ||
+    body?.custom_data?.text ||
+    body?.entry?.[0]?.messaging?.[0]?.message?.text ||
+    ""
+  );
+}
+
+function buildManyChatResponse(text) {
+  return {
+    version: "v2",
+    content: {
+      messages: [
+        {
+          type: "text",
+          text,
+        },
+      ],
+    },
+  };
+}
+
+async function generateAIResponse(userMessage) {
+  const completion = await openai.chat.completions.create({
+    model: process.env.OPENAI_MODEL || "gpt-4.1-mini",
+    messages: [
+      {
+        role: "system",
+        content: SYSTEM_PROMPT,
+      },
+      {
+        role: "user",
+        content: userMessage,
+      },
+    ],
+    temperature: 0.6,
+    max_tokens: 450,
+  });
+
+  return completion.choices?.[0]?.message?.content?.trim();
+}
+
 app.get("/", (req, res) => {
-  res.send("Bot ventas activo ✅");
+  res.status(200).json({
+    status: "ok",
+    message: "Agente Emilia Salazar activo",
+  });
 });
 
-app.post("/mensaje", async (req, res) => {
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "healthy",
+    service: "El Taller del Saber - Sistema Progresivo de Multiplicaciones",
+  });
+});
+
+app.post("/webhook", async (req, res) => {
   try {
-    const texto = req.body.texto || req.body.mensaje || req.body.message || "";
+    const userMessage = extractUserMessage(req.body);
 
-    console.log("Texto recibido:", texto);
-
-    if (!texto) {
-      return res.json({ respuesta: cierrePago() });
+    if (!userMessage) {
+      return res.status(200).json(
+        buildManyChatResponse(
+          "¡Hola! 😊 Soy Emilia, de El Taller del Saber. ¿Te gustaría información del Sistema Progresivo de Multiplicaciones?"
+        )
+      );
     }
 
-    const textoNormalizado = normalizarTexto(texto);
-    const directa = respuestaDirecta(textoNormalizado);
+    const directResponse = getDirectResponse(userMessage);
 
-    if (directa) {
-      console.log("Respuesta directa:", directa);
-      return res.json({ respuesta: directa });
+    if (directResponse) {
+      return res.status(200).json(buildManyChatResponse(directResponse));
     }
 
-    const response = await openai.responses.create({
-      model: "gpt-4.1-mini",
-      temperature: 0.4,
-      input: [
-        { role: "system", content: SYSTEM_PROMPT },
-        { role: "user", content: texto },
-      ],
-    });
+    const aiResponse = await generateAIResponse(userMessage);
 
-    const respuestaIA = response.output_text || "";
-    const respuestaFinal = agregarCierre(respuestaIA);
-
-    console.log("Respuesta enviada:", respuestaFinal);
-
-    return res.json({ respuesta: respuestaFinal });
+    return res.status(200).json(
+      buildManyChatResponse(
+        aiResponse ||
+          "Con gusto te ayudo 😊 El Sistema Progresivo de Multiplicaciones cuesta $69 MXN y se entrega por link de Google Drive después de confirmar el pago. ¿Prefieres transferencia o depósito en OXXO?"
+      )
+    );
   } catch (error) {
-    console.error("Error en /mensaje:", error);
+    console.error("Error en /webhook:", error);
 
-    return res.json({ respuesta: cierrePago() });
+    return res.status(200).json(
+      buildManyChatResponse(
+        "Perdón, tuve un detalle al responder 🙏 Puedes escribirme nuevamente tu duda y con gusto te ayudo."
+      )
+    );
+  }
+});
+
+app.post("/manychat", async (req, res) => {
+  try {
+    const userMessage = extractUserMessage(req.body);
+
+    if (!userMessage) {
+      return res.status(200).json(
+        buildManyChatResponse(
+          "¡Hola! 😊 Soy Emilia, de El Taller del Saber. ¿Te gustaría conocer el Sistema Progresivo de Multiplicaciones?"
+        )
+      );
+    }
+
+    const directResponse = getDirectResponse(userMessage);
+
+    if (directResponse) {
+      return res.status(200).json(buildManyChatResponse(directResponse));
+    }
+
+    const aiResponse = await generateAIResponse(userMessage);
+
+    return res.status(200).json(buildManyChatResponse(aiResponse));
+  } catch (error) {
+    console.error("Error en /manychat:", error);
+
+    return res.status(200).json(
+      buildManyChatResponse(
+        "Disculpa, tuve un problema técnico 🙏 Escríbeme nuevamente tu duda para ayudarte."
+      )
+    );
+  }
+});
+
+app.post("/n8n", async (req, res) => {
+  try {
+    const userMessage = extractUserMessage(req.body);
+
+    if (!userMessage) {
+      return res.status(200).json({
+        success: true,
+        reply:
+          "¡Hola! 😊 Soy Emilia, de El Taller del Saber. ¿Te gustaría información del Sistema Progresivo de Multiplicaciones?",
+      });
+    }
+
+    const directResponse = getDirectResponse(userMessage);
+
+    if (directResponse) {
+      return res.status(200).json({
+        success: true,
+        reply: directResponse,
+      });
+    }
+
+    const aiResponse = await generateAIResponse(userMessage);
+
+    return res.status(200).json({
+      success: true,
+      reply: aiResponse,
+    });
+  } catch (error) {
+    console.error("Error en /n8n:", error);
+
+    return res.status(200).json({
+      success: false,
+      reply:
+        "Disculpa, tuve un problema técnico 🙏 Escríbeme nuevamente tu duda para ayudarte.",
+    });
+  }
+});
+
+app.post("/openai", async (req, res) => {
+  try {
+    const userMessage = extractUserMessage(req.body);
+
+    if (!userMessage) {
+      return res.status(400).json({
+        success: false,
+        error: "No se recibió mensaje del usuario.",
+      });
+    }
+
+    const aiResponse = await generateAIResponse(userMessage);
+
+    return res.status(200).json({
+      success: true,
+      reply: aiResponse,
+    });
+  } catch (error) {
+    console.error("Error en /openai:", error);
+
+    return res.status(500).json({
+      success: false,
+      error: "Error al generar respuesta con OpenAI.",
+    });
   }
 });
 
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en puerto ${PORT}`);
+  console.log(`Servidor activo en puerto ${PORT}`);
 });
