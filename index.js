@@ -21,7 +21,10 @@ const PRODUCT = {
   assistantName: "Emilia",
   productName: "Sistema Progresivo de Multiplicaciones",
   price: "$69 MXN",
-  delivery: "link de Google Drive",
+  comboName: "Combo Completo",
+  comboPrice: "$99 MXN",
+  comboExtra: "$30 MXN adicionales",
+  delivery: "enlaces de Google Drive por WhatsApp",
   paymentMethods: ["Transferencia bancaria", "Depósito en OXXO"],
 };
 
@@ -32,53 +35,94 @@ const PRODUCT = {
 const SYSTEM_PROMPT = `
 Eres Emilia, asesora humana, cálida y cercana de El Taller del Saber 📚✨
 
-Atiendes por WhatsApp a mamás, papás y maestras interesadas en el Sistema Progresivo de Multiplicaciones.
+Atiendes por WhatsApp a mamás, papás y maestras que ya llegaron desde un embudo de ManyChat relacionado con materiales educativos digitales.
+
+ROL PRINCIPAL
+Tu función es brindar SOPORTE conversacional.
+El embudo ya presenta el producto, beneficios, precio, métodos de pago y upsell.
+No reinicies la venta completa salvo que la persona lo pida expresamente.
 
 Tu estilo:
 - Natural, breve y humano.
 - Respuestas cortas tipo WhatsApp.
 - Máximo 1 o 2 párrafos cortos.
-- Usa emojis con moderación: 😊📚✖️🔢✨🧡🙏
-- No saludes con "Hola".
+- Usa emojis con moderación: 📚✒️😀👇👆✨🔢➕✖️➖😊😇❤️🙏
+- No saludes con "Hola" cuando la conversación ya está iniciada.
 - No digas que eres IA.
 - No digas que eres ChatGPT.
 - No suenes robótica.
 - No presiones.
+- No hagas preguntas innecesarias.
+- No repitas toda la oferta si la persona solo hizo una pregunta puntual.
+- Responde directamente a lo que la persona preguntó.
 
-Información real del producto:
-- Producto: Sistema Progresivo de Multiplicaciones.
-- Es material digital imprimible.
-- Se entrega por link de Google Drive.
-- Se entrega después de confirmar pago.
-- Puede recibirse por WhatsApp o ManyChat.
-- Incluye más de 500 ejercicios.
-- Incluye tablas del 1 al 10.
-- Incluye juegos didácticos.
-- Incluye memorama, dominó y rompecabezas.
-- Incluye fichas recortables.
-- Incluye guía práctica para casa o aula.
-- Incluye diploma imprimible.
-- Incluye seguimiento de avance.
-- Incluye bono de matemáticas básicas: sumas, restas y cálculo mental.
-- Precio: $69 MXN.
-- Pago único.
-- Sin mensualidades.
-- Pago por transferencia bancaria o depósito en OXXO.
-- Si la app bancaria no reconoce banco/tarjeta, se puede ofrecer Mercado Pago.
+NEGOCIO
+- Marca: El Taller del Saber.
+- Nicho: educación.
+- Producto principal: Sistema Progresivo de Multiplicaciones.
+- La comunicación del anuncio comienza con dominar las tablas de multiplicar.
+- Es material digital imprimible en PDF.
+- Se entrega mediante enlaces de Google Drive por este mismo WhatsApp.
+- Precio del producto principal: $69 MXN.
+- Incluye el Sistema Progresivo de Multiplicaciones y como bono Matemáticas básicas.
+- Matemáticas básicas incluye sumas, restas, cálculo mental y actividades progresivas.
+- El sistema de multiplicaciones incluye más de 500 actividades imprimibles, tablas del 1 al 10, ejercicios progresivos, juegos matemáticos, bingo, dominó, rompecabezas, comecocos, material visual y recortable, guía práctica, diploma y seguimiento de avance.
+- Upsell: Combo Completo por $99 MXN.
+- El Combo Completo incluye Lectoescritura, Matemáticas básicas y Multiplicaciones.
+- Para pasar del paquete de $69 al combo se agregan $30 MXN.
+- Es pago único.
+- No hay mensualidades.
+- Métodos de pago: transferencia bancaria o depósito en OXXO.
+- La entrega se realiza después de recibir el comprobante y de que el cliente escriba "listo".
 
-Nunca digas:
+SOPORTE ANTES DEL PAGO
+- Si preguntan el precio, responde $69 MXN y menciona brevemente que incluye Multiplicaciones más el bono de Matemáticas básicas.
+- Si preguntan por el combo, responde $99 MXN e indica que incluye Lectoescritura, Matemáticas básicas y Multiplicaciones.
+- Si piden pagar por transferencia u OXXO, confirma el método y guía para que el flujo les comparta los datos.
+- Si preguntan si se entrega por WhatsApp, confirma que sí, mediante enlaces de Google Drive.
+- Si solicitan nuevamente la cuenta o CLABE, responde que se les compartirán nuevamente los datos por este mismo medio. No inventes números bancarios.
+
+SOPORTE DE COMPROBANTES
+- Si dicen "ya pagué", "aquí está el pago", "te mando el comprobante", "deposité", "transferí", "voucher", "baucher", "ticket" o envían comprobante, responde exactamente de forma breve: "Permíteme verificar🙏"
+- No digas que el pago está confirmado hasta que el flujo o una persona lo valide.
+- No vuelvas a vender.
+- No vuelvas a pedir método de pago.
+- No ofrezcas nuevamente el upsell.
+
+SOPORTE DE ENTREGA
+- Si dicen "listo", "mándame el material", "no me llegó", "envíame mis enlaces" o algo similar, responde: "Permíteme verificar tu pago y tus accesos🙏"
+- Si preguntan cuánto tiempo tienen para descargar, indica que pueden hacerlo más tarde y que conviene guardar el mensaje con los enlaces.
+- Si preguntan dónde vienen las tablas, indica que están en el material de Multiplicaciones, especialmente en el Bloque 3: Aprendiendo las tablas.
+- Si preguntan si es PDF, confirma que es material digital imprimible en PDF.
+- Si preguntan dónde están ubicados, explica que es una tienda digital y que la entrega se realiza por WhatsApp mediante Google Drive.
+- Si preguntan cuántas hojas son, no inventes una cifra exacta. Explica que incluye más de 500 actividades organizadas en varios archivos y bloques.
+
+PROBLEMAS DE ACCESO
+- Si dicen que un enlace no abre, no descarga, pide acceso o no funciona, responde primero: "Permíteme verificar tus enlaces🙏"
+- Después orienta de forma breve: los enlaces están funcionando; debe intentar abrirlos directamente en Google Drive. Si continúa el problema, pide que diga qué mensaje aparece.
+- No prometas una revisión real de sistemas externos que no puedes consultar.
+
+DESPUÉS DE LA ENTREGA
+- Si preguntan si pueden descargar después, responde que sí y recomienda guardar el mensaje.
+- Si preguntan si hay más material, menciona Lectoescritura, Matemáticas básicas y otros materiales educativos, sin iniciar una venta extensa.
+- Si dicen "gracias", responde brevemente: "Un placer😊✨"
+
+NUNCA DIGAS
 - garantizado
 - aprende en X días
 - resultados asegurados
-- tu hijo aprenderá sí o sí
 - sirve para todos los niños
+- tu hijo aprenderá sí o sí
 - cura problemas de aprendizaje
-- últimos lugares si no es real
+- últimos lugares
+- promociones falsas
+- información inventada
 - material físico
 - correo electrónico
+- que el pago fue validado si no existe confirmación real
 
-Objetivo:
-Resolver la duda y guiar suavemente al pago por transferencia u OXXO.
+OBJETIVO
+Resolver la duda concreta, dar soporte, orientar al pago cuando la persona lo solicita, recibir comprobantes y ayudar con la entrega o los accesos sin reemplazar el embudo.
 `;
 
 /* =========================
@@ -119,9 +163,9 @@ function cleanAIResponse(text = "") {
 
 function paymentClose() {
   return pick([
-    `El material cuesta ${PRODUCT.price} y puedes pagarlo por transferencia bancaria o depósito en OXXO ✨\n¿Cuál método prefieres? 😊`,
-    `Para obtenerlo, el pago es de ${PRODUCT.price}. Puedes elegir transferencia bancaria o depósito en OXXO 📚\n¿Cuál opción te queda mejor?`,
-    `El acceso tiene costo de ${PRODUCT.price}, pago único. Se puede pagar por transferencia u OXXO ✨\n¿Te paso datos?`,
+    `El material cuesta ${PRODUCT.price}. Puedes pagar por transferencia bancaria o depósito en OXXO ✨\n¿Cuál método prefieres? 😊`,
+    `El acceso cuesta ${PRODUCT.price}, pago único. Puedes elegir transferencia u OXXO 📚`,
+    `Para obtenerlo, el pago es de ${PRODUCT.price} por transferencia u OXXO ✨`,
   ]);
 }
 
@@ -130,12 +174,17 @@ function addClose(text) {
 
   if (!cleaned) return paymentClose();
 
+  const supportReply =
+    /permíteme verificar|permiteme verificar|comprobante|ya pag|deposit|transfer[ií]|voucher|baucher|ticket|acceso|enlace|link|drive|descarg|no me lleg|material|gracias|un placer|bloque 3|pdf|whatsapp/i.test(cleaned);
+
+  if (supportReply) return cleaned;
+
   const alreadyClosing =
     /transferencia|oxxo|datos|pago|pagar|cuenta|clabe|deposito|depósito/i.test(cleaned);
 
   if (alreadyClosing) return cleaned;
 
-  return `${cleaned}\n\n${paymentClose()}`;
+  return cleaned;
 }
 
 function manyChatResponse(text) {
@@ -179,104 +228,136 @@ function extractUserMessage(body = {}) {
 ========================= */
 
 const DIRECT_RESPONSES = {
+  comprobante: [
+    `Permíteme verificar🙏`,
+  ],
+
+  esperandoComprobante: [
+    `Muy bien 😊 Estoy al pendiente de tu comprobante 📲✨`,
+    `Perfecto 😊 Quedo al pendiente de tu comprobante 🙏✨`,
+  ],
+
+  solicitarMaterial: [
+    `Permíteme verificar tu pago y tus accesos🙏`,
+  ],
+
+  problemaEnlace: [
+    `Permíteme verificar tus enlaces🙏`,
+    `Permíteme revisar tus accesos🙏`,
+  ],
+
+  descargarDespues: [
+    `Sí, puedes descargarlos más tarde sin problema 😊\nTe recomendamos guardar el mensaje donde recibiste tus enlaces 📚✨`,
+    `Claro 😊 Puedes abrir y descargar el material más tarde. Guarda el mensaje para conservar tus accesos 📚`,
+  ],
+
+  ubicacionTablas: [
+    `Las tablas están dentro del material de Multiplicaciones, especialmente en el Bloque 3: Aprendiendo las tablas 📚✖️`,
+    `Las encontrarás en el pack de Multiplicaciones, principalmente en el Bloque 3 😊🔢`,
+  ],
+
+  masMaterial: [
+    `Sí 😊 También contamos con Lectoescritura, Matemáticas básicas y otros materiales educativos 📚✨`,
+    `Sí tenemos más material 😊 Hay opciones de Lectoescritura, Matemáticas y otros recursos educativos 📚`,
+  ],
+
+  gracias: [
+    `Un placer😊✨`,
+    `Gracias a ti por confiar en nosotros 😊✨`,
+  ],
+
   comprar: [
-    `Perfecto 😊\n\nEl Sistema Progresivo de Multiplicaciones cuesta ${PRODUCT.price} y se entrega digital después de confirmar el pago 📚✨\n\nPuedes pagar por transferencia bancaria o depósito en OXXO.\n¿Cuál método prefieres?`,
-    `Claro 😊\n\nTe paso la información. El material cuesta ${PRODUCT.price}, es pago único y se entrega por Google Drive después de confirmar el pago 📚\n\nPuedes hacerlo por transferencia u OXXO.`,
-    `Sí, con gusto 😊\n\nEl acceso cuesta ${PRODUCT.price}. Se entrega digital por Google Drive después de confirmar el pago.\n\n¿Prefieres transferencia o depósito en OXXO?`,
+    `El pack de Multiplicaciones cuesta ${PRODUCT.price} 😊\nIncluye el sistema completo y el bono de Matemáticas básicas. Puedes pagar por transferencia u OXXO.`,
+    `Claro 😊 El material cuesta ${PRODUCT.price}, pago único, y se entrega por este mismo WhatsApp mediante enlaces de Google Drive 📚✨`,
+  ],
+
+  combo: [
+    `El Combo Completo cuesta ${PRODUCT.comboPrice} 😊\nIncluye Lectoescritura, Matemáticas básicas y Multiplicaciones 📚✨`,
+    `Por ${PRODUCT.comboExtra} al paquete principal puedes llevar el Combo Completo de ${PRODUCT.comboPrice}, con los 3 packs: Lectoescritura, Matemáticas y Multiplicaciones 😊`,
   ],
 
   precio: [
-    `El Sistema Progresivo de Multiplicaciones cuesta ${PRODUCT.price} 😊\n\nEs pago único e incluye el material digital listo para descargar e imprimir.`,
-    `Tiene un costo de ${PRODUCT.price} 📚\n\nIncluye más de 500 ejercicios, tablas, juegos, fichas, guía, diploma y bono de matemáticas básicas.`,
-    `El precio es de ${PRODUCT.price} ✨\n\nNo hay mensualidades. Se entrega digital después de confirmar el pago.`,
+    `El pack de Multiplicaciones cuesta ${PRODUCT.price} 😊\nIncluye Multiplicaciones y como bono Matemáticas básicas 📚✨`,
+    `Tiene un costo de ${PRODUCT.price}, pago único ✨\nSe entrega digital por este mismo WhatsApp mediante enlaces de Google Drive.`,
   ],
 
   incluye: [
-    `Incluye más de 500 ejercicios, tablas del 1 al 10, juegos didácticos, memorama, dominó, rompecabezas, fichas recortables, guía práctica, diploma, seguimiento de avance y bono de matemáticas básicas 📚✨`,
-    `Viene muy completo 😊\n\nTrae ejercicios progresivos, tablas de multiplicar, juegos, fichas para recortar, guía para casa o aula, diploma y seguimiento de avance.`,
-    `Incluye material para reforzar multiplicaciones y tablas ✖️🔢\n\nAdemás trae juegos, fichas recortables, guía, diploma y bono de matemáticas básicas.`,
+    `Incluye el Sistema Progresivo de Multiplicaciones con más de 500 actividades, tablas del 1 al 10, ejercicios, juegos, material recortable, guía, diploma y seguimiento de avance 📚✨\nTambién recibes Matemáticas básicas como bono.`,
+    `Viene muy completo 😊 Incluye multiplicaciones paso a paso, tablas, ejercicios, juegos, guía práctica y el bono de Matemáticas básicas.`,
   ],
 
   tablas: [
-    `Sí, incluye las tablas de multiplicar del 1 al 10 ✖️🔢\n\nTambién trae ejercicios y juegos para practicarlas de forma más dinámica.`,
-    `Claro 😊\n\nEl sistema está enfocado en multiplicaciones y tablas, con actividades progresivas para practicar paso a paso.`,
-    `Vienen las tablas del 1 al 10 y ejercicios para reforzarlas 📚\n\nTambién incluye juegos y fichas recortables.`,
+    `Sí, incluye las tablas de multiplicar del 1 al 10 ✖️🔢\nTambién trae ejercicios y juegos para practicarlas paso a paso.`,
+    `Claro 😊 El material trabaja las tablas del 1 al 10 con actividades progresivas, práctica y juegos.`,
   ],
 
   grado: [
-    `Puede usarse como apoyo para niños que están comenzando o reforzando las tablas de multiplicar 😊\n\nEstá organizado de forma progresiva para trabajar paso a paso en casa o en clase.`,
-    `Está pensado para reforzar multiplicaciones en primaria 📚\n\nEspecialmente cuando el niño empieza a trabajar tablas o necesita repasarlas.`,
-    `Sí puede servir como material de apoyo ✖️🔢\n\nVa paso a paso, desde actividades sencillas hasta práctica con tablas.`,
+    `Puede utilizarse como apoyo en primaria, especialmente cuando el niño está comenzando o necesita reforzar las tablas 😊\nCada niño puede avanzar a su propio ritmo.`,
+    `Está pensado para niños de primaria que comienzan o refuerzan multiplicaciones y tablas 📚✨`,
   ],
 
   hojas: [
-    `El sistema incluye más de 500 ejercicios organizados de forma progresiva 📚\n\nNo es una hoja suelta, es material completo para trabajar multiplicaciones.`,
-    `Viene con más de 500 ejercicios ✨\n\nAdemás incluye tablas, juegos, fichas recortables, guía, diploma y seguimiento de avance.`,
-    `Incluye más de 500 ejercicios listos para imprimir 😊\n\nEstá organizado para aplicarlo poco a poco en casa o en clase.`,
+    `Incluye más de 500 actividades organizadas en varios archivos y bloques 📚\nNo es una sola hoja ni un solo cuadernillo.`,
+    `Son más de 500 actividades distribuidas por bloques y materiales 😊 No manejamos una cantidad única de hojas porque son varios archivos.`,
   ],
 
   imprimible: [
-    `Sí, todo el material es digital e imprimible 😊\n\nLo descargas, lo imprimes y puedes usarlo en casa o en clase.`,
-    `Así es 📚\n\nEl material se entrega digital para que puedas descargarlo e imprimirlo cuando lo necesites.`,
-    `Sí, viene listo para imprimir ✨\n\nPuedes usarlo varias veces según lo necesites para practicar.`,
+    `Sí, es material digital imprimible en PDF 😊\nLo recibes por Google Drive y puedes imprimir solo lo que vayas necesitando.`,
+    `Así es 📚 Se entrega en formato digital para descargar e imprimir.`,
   ],
 
   entrega: [
-    `La entrega es digital 😊\n\nDespués de confirmar el pago, se envía el acceso por link de Google Drive para descargar e imprimir el material.`,
-    `Lo recibes por WhatsApp o ManyChat mediante un link de Google Drive 📚\n\nUna vez confirmado el pago, se comparte el acceso.`,
-    `Se entrega de forma digital ✨\n\nNo es físico. Recibes el link de descarga después de confirmar tu pago.`,
+    `Se entrega por este mismo WhatsApp mediante enlaces de Google Drive 😊📚\nDespués de recibir el comprobante y confirmar el pago.`,
+    `La entrega es digital por WhatsApp ✨ Recibes los enlaces de Google Drive después de confirmar tu pago.`,
   ],
 
   oxxo: [
-    `Sí, puedes pagar por depósito en OXXO en efectivo 😊\n\nDespués de confirmar el pago, se envía el acceso digital por Google Drive.`,
-    `Claro 📚\n\nTenemos opción de depósito en OXXO. Una vez confirmado, recibes el link para descargar el material.`,
-    `Sí se puede por OXXO ✨\n\nEl material cuesta ${PRODUCT.price} y se entrega digital después de validar el pago.`,
+    `Sí, puedes pagar mediante depósito en OXXO 😊\nEl flujo te compartirá los datos para realizarlo.`,
+    `Claro 📚 Tenemos depósito en OXXO en efectivo. Después compartes tu comprobante por este medio.`,
   ],
 
   transferencia: [
-    `Claro 😊\n\nPuedes pagar por transferencia bancaria. Después de confirmar el pago, se envía el acceso digital por Google Drive 📚✨\n\n¿Te comparto los datos?`,
-    `Sí, tenemos transferencia bancaria 📚\n\nEl material cuesta ${PRODUCT.price} y se entrega digital después de confirmar el pago.`,
-    `Puedes pagar por transferencia ✨\n\nDespués de validar el comprobante, te enviamos el acceso por Google Drive.`,
+    `Claro 😊 Puedes pagar por transferencia bancaria. Te compartimos los datos por este mismo medio.`,
+    `Sí, tenemos transferencia bancaria 📚✨\nDespués de realizarla, envía tu comprobante por este chat.`,
   ],
 
-  comprobante: [
-    `Perfecto 😊\n\nEnvíame por aquí tu comprobante de pago y revisamos la confirmación.\n\nDespués te compartimos el acceso digital por Google Drive 📚✨`,
-    `Muy bien 📚\n\nMándame tu comprobante por aquí para validarlo y enseguida se te comparte el acceso al material.`,
-    `Gracias 😊\n\nPuedes enviarme el comprobante en este chat y revisamos la confirmación para entregarte el acceso.`,
+  reenviarDatos: [
+    `Con gusto 😊 Te compartimos nuevamente los datos de pago por este mismo medio.`,
+    `Claro 😊 Enseguida te volvemos a compartir los datos para transferencia.`,
+  ],
+
+  confirmarClabe: [
+    `Así es 😊 Esa es la CLABE para realizar tu transferencia.`,
+    `Es correcto 😊 Esa es la opción para transferir.`,
   ],
 
   seguridad: [
-    `Entiendo tu duda 😊\n\nLa entrega se realiza por los canales oficiales de El Taller del Saber y el acceso se envía después de confirmar el pago.`,
-    `Sí, es seguro 📚\n\nEl material se entrega digital por Google Drive una vez confirmado el pago.`,
-    `Claro 🧡\n\nLa entrega se hace por WhatsApp o ManyChat mediante un link de Google Drive después de validar el pago.`,
+    `Entiendo tu duda 😊 La entrega se realiza por los canales oficiales de El Taller del Saber y recibes tus accesos por Google Drive después de confirmar el pago.`,
+    `La entrega es digital por este mismo WhatsApp 📚✨ Después de validar el pago se comparten los enlaces.`,
   ],
 
   objecionPrecio: [
-    `Te entiendo 😊\n\nLa ventaja es que por ${PRODUCT.price} recibes un sistema completo con ejercicios, tablas, juegos, guía, diploma y bono, listo para imprimir 📚✨`,
-    `Sí te entiendo 🧡\n\nEstá pensado para ahorrar tiempo y tener el material organizado, sin estar buscando hojas sueltas en internet.`,
-    `Comprendo 😊\n\nPor ${PRODUCT.price} recibes más de 500 ejercicios, juegos y guía práctica para trabajar multiplicaciones paso a paso.`,
+    `Te entiendo 😊 Por ${PRODUCT.price} recibes el Sistema de Multiplicaciones y el bono de Matemáticas básicas, todo listo para descargar e imprimir 📚✨`,
+    `Comprendo 😊 Es un pago único de ${PRODUCT.price} e incluye más de 500 actividades organizadas por bloques.`,
   ],
 
   pensar: [
-    `Claro 😊\n\nTómate tu tiempo. Si más adelante te surge alguna duda sobre el material, con gusto te ayudo 📚✨`,
-    `Está bien 😊\n\nCuando quieras retomarlo, aquí te puedo pasar la información o los datos de pago.`,
-    `Sin problema 🧡\n\nSi decides aprovecharlo, me escribes y te comparto los datos.`,
+    `Claro 😊 Tómate tu tiempo. Si te surge alguna duda, aquí seguimos al pendiente 📚✨`,
+    `Sin problema 😊 Cuando decidas retomarlo, con gusto te ayudamos.`,
   ],
 
   atrasado: [
-    `Puede servir como material de apoyo y refuerzo 😊\n\nEstá organizado paso a paso para practicar multiplicaciones y tablas sin brincar directo a ejercicios complicados.`,
-    `Sí puede ayudar como refuerzo 📚\n\nVa de forma progresiva, con ejercicios y juegos para practicar las tablas poco a poco.`,
-    `Es buena opción para reforzar ✖️🔢\n\nSolo es importante trabajarlo con calma y constancia, porque cada niño avanza a su ritmo.`,
+    `Puede servir como material de apoyo y refuerzo 😊\nEstá organizado paso a paso, pero cada niño avanza a su propio ritmo.`,
+    `Sí puede utilizarse para reforzar 📚 Lo ideal es comenzar desde el bloque que corresponda a sus conocimientos actuales.`,
   ],
 
   ubicacion: [
-    `El material es digital 😊\n\nNo necesitas acudir a ningún lugar. Se entrega por link de Google Drive después de confirmar el pago.`,
-    `Trabajamos con entrega digital 📚\n\nRecibes el acceso por WhatsApp o ManyChat, sin envío físico.`,
-    `No manejamos entrega física ✨\n\nEl acceso se comparte digitalmente para descargar e imprimir desde donde estés.`,
+    `Somos una tienda digital 😊\nLa entrega se realiza por este mismo WhatsApp mediante enlaces de Google Drive.`,
+    `Trabajamos de forma digital 📚✨ No necesitas acudir a un lugar; recibes el material por WhatsApp.`,
   ],
 
   video: [
-    `No incluye video 😊\n\nEs material digital imprimible con ejercicios, tablas, juegos, fichas, guía, diploma y bono de matemáticas básicas 📚✨`,
+    `No incluye clases en video 😊\nEs material digital imprimible con actividades, ejercicios, juegos y guías prácticas 📚✨`,
   ],
 };
 
@@ -288,83 +369,172 @@ const INTENTS = [
   {
     name: "comprobante",
     keywords: [
-      "comprobante", "ticket", "recibo", "folio",
-      "ya pague", "ya pagué", "pague", "pagué",
-      "hice el pago", "mande pago", "mandé pago",
-      "deposite", "deposité", "transferi", "transferí"
+      "aqui esta el pago", "aquí está el pago", "aqui esta mi pago", "aquí está mi pago",
+      "ya pague", "ya pagué", "hice el pago", "realice el pago", "realicé el pago",
+      "mande el comprobante", "mandé el comprobante", "envio comprobante", "envío comprobante",
+      "te mando el comprobante", "le envio el comprobante", "le envío el comprobante",
+      "comprobante", "voucher", "baucher", "ticket", "recibo", "folio",
+      "deposite", "deposité", "transferi", "transferí", "pago realizado"
+    ],
+    close: false,
+  },
+  {
+    name: "esperandoComprobante",
+    keywords: [
+      "un momento le envio", "un momento le envío", "ahorita le envio", "ahorita le envío",
+      "voy a pagar", "voy a transferir", "ahorita transfiero", "ahorita deposito",
+      "en un momento", "espere un momento", "espera un momento"
+    ],
+    close: false,
+  },
+  {
+    name: "problemaEnlace",
+    keywords: [
+      "no abre", "no puedo abrir", "no descarga", "no puedo descargar", "no funciona",
+      "me pide acceso", "solicitar acceso", "problema con el link", "problema con el enlace",
+      "enlace roto", "link roto", "drive no abre"
+    ],
+    close: false,
+  },
+  {
+    name: "solicitarMaterial",
+    keywords: [
+      "mandame el material", "mándame el material", "manda el material", "envia el material", "envía el material",
+      "no me llego", "no me llegó", "no he recibido", "no recibi", "no recibí",
+      "mis enlaces", "mis accesos", "enviame mis enlaces", "envíame mis enlaces",
+      "ya escribi listo", "ya escribí listo", "listo"
+    ],
+    close: false,
+  },
+  {
+    name: "descargarDespues",
+    keywords: [
+      "cuanto tiempo tengo para descargar", "cuánto tiempo tengo para descargar",
+      "puedo descargar despues", "puedo descargar después", "descargar mas tarde", "descargar más tarde",
+      "oportunidad de descargar", "lo puedo abrir despues", "lo puedo abrir después"
+    ],
+    close: false,
+  },
+  {
+    name: "ubicacionTablas",
+    keywords: [
+      "donde vienen las tablas", "dónde vienen las tablas", "donde estan las tablas", "dónde están las tablas",
+      "en que bloque estan las tablas", "en qué bloque están las tablas"
+    ],
+    close: false,
+  },
+  {
+    name: "masMaterial",
+    keywords: [
+      "tienes mas material", "tienes más material", "manejas mas material", "manejas más material",
+      "otros materiales", "otro material"
+    ],
+    close: false,
+  },
+  {
+    name: "gracias",
+    keywords: ["gracias", "muchas gracias", "vale gracias", "ok gracias"],
+    close: false,
+  },
+  {
+    name: "combo",
+    keywords: [
+      "combo", "combo completo", "quiero los tres", "quiero el paquete completo",
+      "lectoescritura tambien", "lectoescritura también", "los 3 packs", "paquete de 99", "son 99"
+    ],
+    close: false,
+  },
+  {
+    name: "reenviarDatos",
+    keywords: [
+      "vuelve a enviar la cuenta", "volver a enviar la cuenta", "mandar otra vez la cuenta",
+      "reenviar datos", "vuelve a mandar los datos", "me puede volver enviar", "me puedes volver enviar",
+      "otra vez el numero de cuenta", "otra vez el número de cuenta"
+    ],
+    close: false,
+  },
+  {
+    name: "confirmarClabe",
+    keywords: [
+      "es esta para transferir", "esta es para transferir", "esta es la clabe", "es esta la clabe",
+      "esa es la clabe", "esa es para transferir"
     ],
     close: false,
   },
   {
     name: "comprar",
     keywords: [
-      "quiero", "lo quiero", "me interesa", "quiero comprar",
-      "comprar", "adquirir", "pasame datos", "pásame datos",
-      "datos", "datos de pago", "cuenta", "clabe",
-      "numero de cuenta", "número de cuenta", "como pago",
-      "cómo pago", "donde pago", "ya", "va", "sale"
+      "quiero comprar", "quiero el pack", "lo quiero", "me interesa", "adquirir",
+      "como compro", "cómo compro", "quiero multiplicaciones", "quiero las tablas"
     ],
     close: false,
   },
   {
     name: "oxxo",
-    keywords: ["oxxo", "deposito", "depósito", "efectivo"],
-    close: true,
+    keywords: ["oxxo", "deposito en oxxo", "depósito en oxxo", "pagar en efectivo"],
+    close: false,
   },
   {
     name: "transferencia",
-    keywords: ["transferencia", "banco", "tarjeta", "mercado pago", "spei"],
-    close: true,
+    keywords: ["transferencia", "transferenciq", "banco", "spei", "pago por tarjeta"],
+    close: false,
   },
   {
     name: "precio",
-    keywords: ["precio", "cuesta", "costo", "vale", "cuanto", "cuánto", "a como", "a cómo", "69", "79"],
-    close: true,
+    keywords: [
+      "precio", "cuesta", "costo", "vale", "cuanto sale", "cuánto sale", "cuanto cuesta", "cuánto cuesta",
+      "a como", "a cómo", "69 pesos", "precio del set"
+    ],
+    close: false,
   },
   {
     name: "video",
     keywords: ["video", "videos", "clases"],
-    close: true,
+    close: false,
   },
   {
     name: "entrega",
-    keywords: ["entrega", "envian", "envían", "mandan", "llega", "link", "enlace", "drive", "google drive", "acceso", "recibo", "recibir"],
-    close: true,
+    keywords: [
+      "como lo recibo", "cómo lo recibo", "me lo mandan por whatsapp", "lo mandan por whatsapp",
+      "por donde lo envian", "por dónde lo envían", "como entregan", "cómo entregan",
+      "entrega", "google drive", "por drive"
+    ],
+    close: false,
   },
   {
     name: "imprimible",
-    keywords: ["imprimir", "imprimible", "pdf", "descargar", "descarga", "archivo"],
-    close: true,
+    keywords: ["es pdf", "pdf", "imprimir", "imprimible", "archivo digital"],
+    close: false,
   },
   {
     name: "incluye",
-    keywords: ["incluye", "contiene", "trae", "viene", "que incluye", "qué incluye", "material"],
-    close: true,
+    keywords: ["que incluye", "qué incluye", "contiene", "que trae", "qué trae", "que viene", "qué viene"],
+    close: false,
   },
   {
     name: "tablas",
-    keywords: ["tablas", "tabla", "multiplicaciones", "multiplicacion", "multiplicación"],
-    close: true,
+    keywords: ["tablas", "tabla de multiplicar", "tablas de multiplicar", "multiplicaciones"],
+    close: false,
   },
   {
     name: "grado",
     keywords: ["grado", "primaria", "primero", "segundo", "tercero", "cuarto", "edad", "anos", "años"],
-    close: true,
+    close: false,
   },
   {
     name: "hojas",
     keywords: ["hojas", "paginas", "páginas", "cuantas hojas", "cuántas hojas", "cuantas paginas", "cuántas páginas"],
-    close: true,
+    close: false,
   },
   {
     name: "seguridad",
     keywords: ["seguro", "fraude", "estafa", "confiable", "confianza", "real", "si entregan", "sí entregan"],
-    close: true,
+    close: false,
   },
   {
     name: "objecionPrecio",
     keywords: ["caro", "muy caro", "no tengo dinero", "no me alcanza"],
-    close: true,
+    close: false,
   },
   {
     name: "pensar",
@@ -374,12 +544,12 @@ const INTENTS = [
   {
     name: "atrasado",
     keywords: ["atrasado", "batalla", "dificultad", "no sabe", "le cuesta", "se le dificulta"],
-    close: true,
+    close: false,
   },
   {
     name: "ubicacion",
     keywords: ["ubicados", "ubicacion", "ubicación", "donde estan", "dónde están", "direccion", "dirección"],
-    close: true,
+    close: false,
   },
 ];
 
@@ -448,7 +618,7 @@ async function handleMessage(req, res, format = "manychat") {
   } catch (error) {
     console.error("Error:", error);
 
-    const reply = `Tuve un detalle técnico 🙏\n\n${paymentClose()}`;
+    const reply = `Tuve un detalle técnico 🙏\n\nPermíteme revisarlo.`;
 
     return res.status(200).json(
       format === "manychat"
