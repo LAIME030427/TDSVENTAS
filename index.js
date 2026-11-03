@@ -558,7 +558,12 @@ También puedes agregar Divisiones y Lectoescritura por **$40 adicionales**, par
 
 Realizas **un solo pago por el importe final que elijas: $69 o $109 MXN**.
 
-${COMMERCIAL_CLOSE}`,
+¿Cuál opción prefieres? 😊
+
+📘 Paquete inicial: **$69 MXN**
+📚 Combo completo: **$109 MXN en total**
+
+Puedes seleccionar tu opción en el mensaje anterior para continuar. ✨`,
   incluye: `¡Con muchísimo gusto! 😊📚
 
 La opción de **$69 MXN** incluye nuestro pack de **Multiplicaciones** y el pack de **Matemáticas Básicas de regalo**. 🎁
@@ -569,7 +574,12 @@ Los materiales son digitales, en PDF y organizados por bloques para descargar e 
 
 Realizas **un solo pago por el importe final que elijas: $69 o $109 MXN**.
 
-${COMMERCIAL_CLOSE}`,
+¿Cuál opción prefieres? 😊
+
+📘 Paquete inicial: **$69 MXN**
+📚 Combo completo: **$109 MXN en total**
+
+Puedes seleccionar tu opción en el mensaje anterior para continuar. ✨`,
 };
 
 function extractCommercialStage(body) {
