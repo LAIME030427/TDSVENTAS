@@ -449,20 +449,20 @@ const COMMERCIAL_CLOSE = "En cuanto decidas adquirirlo, solo dime si será por O
 const APPROVED_RESPONSES = {
   precio: `¡Claro! 😊✨
 
-Nuestro pack de Multiplicaciones tiene un precio especial de **$69 MXN** e incluye más de 500 ejercicios organizados de manera progresiva, listos para descargar e imprimir. 📚✖️
+Nuestro pack de Multiplicaciones tiene un precio especial de *$69 MXN* e incluye más de 500 ejercicios organizados de manera progresiva, listos para descargar e imprimir. 📚✖️
 
 Además, te llevas de regalo nuestro pack de Matemáticas Básicas para reforzar sumas, restas y cálculo mental. 🎁
 
 ${COMMERCIAL_CLOSE}`,
   incluye: `¡Con muchísimo gusto! 😊📚
 
-Nuestro **pack de Multiplicaciones** incluye más de 500 ejercicios organizados de manera progresiva en bloques para aprender y reforzar las tablas del 1 al 10.
+Nuestro *pack de Multiplicaciones* incluye más de 500 ejercicios organizados de manera progresiva en bloques para aprender y reforzar las tablas del 1 al 10.
 
 Esta organización te permite elegir el bloque y las actividades que deseas trabajar con tu peque, de acuerdo con sus necesidades y avances. 💖
 
 Encontrarás actividades prácticas, juegos educativos, una guía de apoyo, seguimiento de avances y un diploma de reconocimiento. 🏆✨
 
-Además, ¡te llevas de regalo nuestro **pack de Matemáticas Básicas**! 🎁
+Además, ¡te llevas de regalo nuestro *pack de Matemáticas Básicas*! 🎁
 
 Todos nuestros packs están organizados por bloques, para que puedas seleccionar los archivos que necesitas, descargarlos e imprimirlos conforme los vayas utilizando. 📚✨
 
@@ -473,7 +473,7 @@ Nuestros materiales están diseñados para que puedas trabajar con tu peque de m
 
 Cada pack está organizado por bloques, con diferentes archivos y ejercicios que puedes seleccionar según el tema que quieras reforzar y el avance de tu peque. ✏️✨
 
-Además, **incluimos como bono una guía de apoyo para padres y maestros**, que te orienta sobre la ruta de aprendizaje que puedes implementar con tu peque, facilitando la organización y el aprovechamiento de las actividades. 🎁💖
+Además, *incluimos como bono una guía de apoyo para padres y maestros*, que te orienta sobre la ruta de aprendizaje que puedes implementar con tu peque, facilitando la organización y el aprovechamiento de las actividades. 🎁💖
 
 De esta manera, puedes elegir el bloque que necesitas, descargar las actividades, imprimirlas y trabajar a su propio ritmo, siguiendo una ruta de apoyo.
 
@@ -482,33 +482,33 @@ Y lo mejor es que puedes regresar a tus materiales cuando lo necesites para cont
 ${COMMERCIAL_CLOSE}`,
   edad: `¡Claro que sí! 😊📚
 
-Nuestros materiales están diseñados para apoyar el aprendizaje de peques de **preescolar y primaria**, dependiendo del pack y de los conocimientos que necesiten reforzar. 💖
+Nuestros materiales están diseñados para apoyar el aprendizaje de peques de *preescolar y primaria*, dependiendo del pack y de los conocimientos que necesiten reforzar. 💖
 
 Lo más importante no es solamente la edad o el grado escolar, sino el nivel de aprendizaje en el que se encuentra tu peque.
 
 Por eso, nuestros packs están organizados de manera progresiva en bloques, permitiéndote seleccionar las actividades más adecuadas para sus conocimientos y avanzar a su propio ritmo. ✏️✨
 
-Además, incluimos una **guía de apoyo para padres y maestros** que te orienta sobre la ruta de aprendizaje que puedes implementar.
+Además, incluimos una *guía de apoyo para padres y maestros* que te orienta sobre la ruta de aprendizaje que puedes implementar.
 
 ${COMMERCIAL_CLOSE}`,
   hojas: `¡Con muchísimo gusto! 😊📚
 
-Nuestro pack de Multiplicaciones incluye **más de 500 ejercicios** distribuidos en diferentes archivos y bloques de aprendizaje. ✏️✨
+Nuestro pack de Multiplicaciones incluye *más de 500 ejercicios* distribuidos en diferentes archivos y bloques de aprendizaje. ✏️✨
 
 La cantidad de hojas puede variar según las actividades, ya que algunos archivos contienen varios ejercicios por página.
 
-Una de las ventajas es que **no necesitas imprimir todo el material de una sola vez**. Puedes seleccionar el bloque que deseas trabajar con tu peque, descargarlo e imprimir únicamente las actividades que necesites. 💖
+Una de las ventajas es que *no necesitas imprimir todo el material de una sola vez*. Puedes seleccionar el bloque que deseas trabajar con tu peque, descargarlo e imprimir únicamente las actividades que necesites. 💖
 
 ${COMMERCIAL_CLOSE}`,
   entrega: `¡Claro que sí! 😊📚
 
-Todos nuestros materiales son **digitales, en formato PDF y listos para descargar e imprimir**. ✨
+Todos nuestros materiales son *digitales, en formato PDF y listos para descargar e imprimir*. ✨
 
 Una vez que verificamos tu comprobante de pago, te compartimos por este mismo WhatsApp el acceso a tus materiales mediante Google Drive. 💖
 
 Encontrarás tus packs organizados por bloques, para que puedas elegir los archivos que necesitas, descargarlos e imprimirlos conforme vayas trabajando con tu peque.
 
-Además, **el acceso a tus materiales es permanente**, así que podrás volver a consultarlos y descargarlos cuando lo necesites. 📚✨
+Además, *el acceso a tus materiales es permanente*, así que podrás volver a consultarlos y descargarlos cuando lo necesites. 📚✨
 
 ${COMMERCIAL_CLOSE}`,
   seguro: `¡Claro que sí! 😊✨
@@ -526,7 +526,7 @@ Si tienes alguna otra duda, con muchísimo gusto te ayudo. 😇✨
 ${COMMERCIAL_CLOSE}`,
   interesa: `¡Excelente! 😊✨
 
-Para aprovechar esta promoción especial, solo elige el método de pago que prefieras: **OXXO o Transferencia**. 💖
+Para aprovechar esta promoción especial, solo elige el método de pago que prefieras: *OXXO o Transferencia*. 💖
 
 ¡Con muchísimo gusto te ayudamos con tu compra! 📚✨`,
   anticipado: `¡Te comprendo perfectamente! 😊💖
@@ -552,32 +552,32 @@ Una vez realizado, solo compártenos tu comprobante por este mismo medio para co
 const COMBO_STAGE_RESPONSES = {
   precio: `¡Claro! 😊✨
 
-Puedes elegir nuestro pack de Multiplicaciones con Matemáticas Básicas de regalo por **$69 MXN**. 📚✖️🎁
+Puedes elegir nuestro pack de Multiplicaciones con Matemáticas Básicas de regalo por *$69 MXN*. 📚✖️🎁
 
-También puedes agregar Divisiones y Lectoescritura por **$40 adicionales**, para llevar los **cuatro packs por $109 MXN en TOTAL**: Multiplicaciones, Matemáticas Básicas, Divisiones y Lectoescritura. 📚✨
+También puedes agregar Divisiones y Lectoescritura por *$40 adicionales*, para llevar los *cuatro packs por $109 MXN en TOTAL*: Multiplicaciones, Matemáticas Básicas, Divisiones y Lectoescritura. 📚✨
 
-Realizas **un solo pago por el importe final que elijas: $69 o $109 MXN**.
+Realizas *un solo pago por el importe final que elijas: $69 o $109 MXN*.
 
 ¿Cuál opción prefieres? 😊
 
-📘 Paquete inicial: **$69 MXN**
-📚 Combo completo: **$109 MXN en total**
+📘 Paquete inicial: *$69 MXN*
+📚 Combo completo: *$109 MXN en total*
 
 Puedes seleccionar tu opción en el mensaje anterior para continuar. ✨`,
   incluye: `¡Con muchísimo gusto! 😊📚
 
-La opción de **$69 MXN** incluye nuestro pack de **Multiplicaciones** y el pack de **Matemáticas Básicas de regalo**. 🎁
+La opción de *$69 MXN* incluye nuestro pack de *Multiplicaciones* y el pack de *Matemáticas Básicas de regalo*. 🎁
 
-La opción de **$109 MXN en TOTAL** incluye los cuatro packs: **Multiplicaciones, Matemáticas Básicas, Divisiones y Lectoescritura**. Son **$40 adicionales** respecto a la opción inicial. 📚✨
+La opción de *$109 MXN en TOTAL* incluye los cuatro packs: *Multiplicaciones, Matemáticas Básicas, Divisiones y Lectoescritura*. Son *$40 adicionales* respecto a la opción inicial. 📚✨
 
 Los materiales son digitales, en PDF y organizados por bloques para descargar e imprimir conforme los necesites.
 
-Realizas **un solo pago por el importe final que elijas: $69 o $109 MXN**.
+Realizas *un solo pago por el importe final que elijas: $69 o $109 MXN*.
 
 ¿Cuál opción prefieres? 😊
 
-📘 Paquete inicial: **$69 MXN**
-📚 Combo completo: **$109 MXN en total**
+📘 Paquete inicial: *$69 MXN*
+📚 Combo completo: *$109 MXN en total*
 
 Puedes seleccionar tu opción en el mensaje anterior para continuar. ✨`,
 };
